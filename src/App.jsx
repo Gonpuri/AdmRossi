@@ -1,5 +1,6 @@
 import { Container, createTheme, ThemeProvider } from "@mui/material";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+
 
 const theme = createTheme({
   palette: {
@@ -16,9 +17,12 @@ const theme = createTheme({
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Navbar />
+      <body>
+      <Container maxWidth="auto" >
+        <Navbar />        
       </Container>
+      
+      </body>
     </ThemeProvider>
   );
 }

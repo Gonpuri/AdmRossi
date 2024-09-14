@@ -1,32 +1,35 @@
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemButton,  ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
-import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import WorkIcon from "@mui/icons-material/Work";
 
-export default function NavList() {
+export default function NavList({navLinks, onClick}) {
   return (
-    <Box sx={{ width: 250 }}>
+   <Box
+     sx={{
+     width:
+     250,bgcolor:
+     "#666666",
+     color:"beige"
+     }}
+     onClick={onClick}
+     >
       <nav>
         <List>
-          <ListItem>
-            <ListItemIcon>
-              <PrivacyTipIcon />
-            </ListItemIcon>
-            <ListItemText primary="Nuestor Servicios"></ListItemText>
+        {navLinks.map((item) =>(
+            <ListItem
+              disablePadding
+              key={item.title}
+              sx={{mt:7,
+              ml:
+              2,
+              color:"beige"}}>
+          <ListItemButton
+            href={item.path}
+            component="a">
+           <ListItemText primary={item.title}/>
+           </ListItemButton>
           </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <WorkIcon />
-            </ListItemIcon>
-            <ListItemText primary="Perfil"></ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ContactMailIcon />
-            </ListItemIcon>
-            <ListItemText primary="Contacto"></ListItemText>
-          </ListItem>
+          ))
+        }
         </List>
       </nav>
     </Box>
